@@ -17,7 +17,7 @@ Aplicația permite:
 
 ## 2. Repository Git
 
-Adresa repository-ului: https://github.com/cara1910/cod-licenta
+Adresa repository-ului: https://github.com/cara1910/cod_licenta
 
 ## 3. Structura proiectului
 
