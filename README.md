@@ -1,4 +1,4 @@
-# Sistem embedded pentru detectarea persoanelor bazat pe procesare de imagini pe Raspberry Pi
+# Sistem embedded pentru detectarea persoanelor folosind procesare de imagini pe Raspberry Pi
 
 ## 1. Descrierea proiectului
 
