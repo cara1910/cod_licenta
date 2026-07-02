@@ -1,0 +1,20 @@
+DATABASE = "surveillance.db"
+
+IMAGE_FOLDER = "static/detections"
+
+CONFIDENCE_THRESHOLD = 0.5
+
+SAVE_COOLDOWN_SECONDS = 10
+
+DETECT_EVERY_N_FRAMES = 5
+
+EMAIL_ENABLED = True
+
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 587
+
+EMAIL_SENDER = "haiducarinam19@gmail.com"
+EMAIL_PASSWORD = "ymyfcjarnjzsvyfs"
+
+MAX_STORAGE_PERCENT = 90
+DELETE_PERCENT = 30

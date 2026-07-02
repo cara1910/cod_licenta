@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-title">LOGIN</div>
+        <div class="hero-subtitle">Autentifică-te rapid și sigur pentru a accesa toate funcționalitățile.</div>
+      </div>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-header">
+        <div class="login-icon">👤</div>
+        <div class="login-heading" id="form-heading">LOGIN</div>
+        <p class="login-text" id="form-text">Introdu datele tale pentru a continua.</p>
+        <div class="mode-switch" role="group" aria-label="Login sau crează cont">
+          <button type="button" class="mode-button active" id="login-mode">Login</button>
+          <button type="button" class="mode-button" id="signup-mode">Creare cont</button>
+        </div>
+      </div>
+
+      <form class="form" id="auth-form" method="POST" action="{{ url_for('home') }}">
+	<input type="hidden" name="mode" id="auth-mode" value="login">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required />
+        </div>
+
+        <div class="input-group">
+          <label for="password">Parolă</label>
+          <input id="password" name="password" type="password" placeholder="Password" required />
+        </div>
+
+        <div class="input-group hidden" id="confirm-group">
+          <label for="confirm-password">Confirmă parola</label>
+          <input id="confirm-password" name="confirm_password" type="password" placeholder="Confirmă parola" />
+        </div>
+
+        <div class="helper-row" id="helper-row">
+          <span></span>
+          <a href="{{ url_for('reset_request') }}">Ai uitat parola?</a>
+        </div>
+
+        <button type="submit" class="login-button" id="submit-button">LOGIN</button>
+      </form>
+
+      <p class="note" id="mode-note">Navighează rapid și sigur cu contul tău — design modern, curat și centrat pentru orice ecran.</p>
+      <script src="{{ url_for('static', filename='js/function.js') }}"></script>
+    </section>
+  </div>
+</body>
+</html>

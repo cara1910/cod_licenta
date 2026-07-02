@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resetare confirmată</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-title">RESETARE FINALIZATĂ</div>
+        <div class="hero-subtitle">Parola ta a fost actualizată cu succes.</div>
+      </div>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-header">
+        <div class="login-icon">✅</div>
+        <div class="login-heading">RESETARE CONFIRMATĂ</div>
+        <p class="login-text">Acum te poți autentifica folosind noua parolă.</p>
+      </div>
+
+      <div class="note">
+        Parola contului a fost modificată cu succes. Revino la pagina de autentificare pentru a intra în aplicație.
+      </div>
+
+      <a class="login-button" href="{{ url_for('home') }}">ÎNAPOI LA LOGIN</a>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Supraveghere</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-user">
+          <div class="hero-avatar">👤</div>
+          <div class="hero-greeting">Bună ziua,<br /><span>{{ username }}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="login-panel dashboard-panel">
+      <div class="login-header">
+        <div class="login-icon">📊</div>
+        <div class="login-heading">Dashboard Supraveghere</div>
+        <p class="login-text">Monitorizează cronologia imaginilor și accesează direct camera live.</p>
+      </div>
+
+      <div class="card-row">
+        <div class="card">
+          <div class="card-title">Înregistrări în ziua selectată</div>
+          <div class="card-value" id="record-count">{{ record_count }}</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Disc folosit</div>
+          <div class="card-value" id="disk-usage">{{ disk_usage }}</div>
+          <div class="disk-meter">
+            <span id="disk-meter-fill"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <label for="date-filter">Selectează ziua:</label>
+        <input type="date" id="date-filter" value="{{ selected_date }}" onchange="window.location.href='/dashboard?date=' + this.value" /></div>
+
+      <div class="dashboard-grid">
+  <div class="table-container">
+    <div class="table-header">Istoric pe zi</div>
+
+    <div class="history-scroll">
+      <table class="records-table">
+        <thead>
+          <tr>
+            <th>Timp</th>
+            <th>Imagine</th>
+          </tr>
+        </thead>
+
+        <tbody id="records-body">
+          {% for detection in detections %}
+          <tr>
+            <td>{{ detection.detected_at }}</td>
+            <td>
+              <a href="{{ url_for('static', filename=detection['image_path'].replace('static/', '')) }}" target="_blank">
+                poza{{ loop.index }}
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="live-panel">
+    <div class="table-header">Flux live</div>
+
+    <div class="live-box">
+      <div class="live-status">Conexiune activă</div>
+    </div>
+
+    <a class="login-button live-button" href="{{ url_for('live') }}">
+      DESCHIDE LIVE
+    </a>
+  </div>
+</div>
+    </section>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resetare parolă</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-title">RESETARE PAROLĂ</div>
+        <div class="hero-subtitle">Trimite un link de resetare a parolei către adresa ta de email.</div>
+      </div>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-header">
+        <div class="login-icon">✉️</div>
+        <div class="login-heading">TRIMITE LINK DE RESETARE</div>
+        <p class="login-text">Introdu emailul asociat contului ca să primești instrucțiuni de reset.</p>
+      </div>
+
+      <form class="form" method="POST" action="{{ url_for('reset_request') }}">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required />
+        </div>
+
+        <div class="helper-row">
+          <span></span>
+          <a href="{{ url_for('home') }}">Înapoi la login</a>
+        </div>
+
+        <button type="submit" class="login-button">TRIMITE LINK</button>
+      </form>
+      
+
+      <p class="note">Veți primi un email cu instrucțiuni pentru a vă reseta parola și a reveni în aplicație.</p>
+    </section>
+  </div>
+</body>
+</html>

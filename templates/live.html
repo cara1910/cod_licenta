@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<script>
+  setInterval(() => {
+    fetch("/live_status")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("persons-count").textContent = data.persons;
+      });
+  }, 1000);
+</script>
+<body>
+  <div class="container live-page">
+
+    <section class="live-sidebar">
+      <div class="hero-content live-sidebar-content">
+        <div class="hero-title">LIVE</div>
+        <div class="hero-subtitle">Flux video al camerei</div>
+
+        <div class="live-info">
+          <div class="live-info-item">
+            <span>Status cameră</span>
+            <strong>Conexiune activă</strong>
+          </div>
+
+          <div class="live-info-item">
+            <span>Utilizator</span>
+            <strong>{{ username }}</strong>
+          </div>
+
+          <div class="live-info-item">
+            <span>Persoane detectate</span>
+            <strong id="persons-count">0</strong>
+          </div>
+        </div>
+
+        <a class="login-button live-back-button" href="{{ url_for('dashboard') }}">
+          ÎNAPOI LA DASHBOARD
+        </a>
+      </div>
+    </section>
+
+    <section class="live-main">
+      <div class="live-video-container">
+        <img src="{{ url_for('video_feed') }}" class="live-video">
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
